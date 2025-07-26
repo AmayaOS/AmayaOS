@@ -80,6 +80,7 @@ override CFLAGS += \
 override CPPFLAGS := \
     -I ../include/lib/libc \
     -I ../include/boot \
+    -I ../include \
     $(CPPFLAGS) \
     -DLIMINE_API_REVISION=3 \
     -MMD \
