@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include <string.h>
 #include <limine.h>
+#include <kernel/serial.h>
 
 // Set the base revision to 3, this is recommended as this is the latest
 // base revision described by the Limine boot protocol specification.
@@ -61,6 +62,10 @@ void kmain(void) {
         volatile uint32_t *fb_ptr = framebuffer->address;
         fb_ptr[i * (framebuffer->pitch / 4) + i] = 0xffffff;
     }
+
+    // let's communicate ourselves with the outer world!
+    serial_init();
+    serial_send("Hello world!");
 
     // We're done, just hang...
     hcf();

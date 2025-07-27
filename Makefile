@@ -26,6 +26,7 @@ run: $(IMAGE_NAME).iso
 		-M q35 \
 		-cdrom $(IMAGE_NAME).iso \
 		-boot d \
+		-serial stdio \
 		$(QEMUFLAGS)
 
 .PHONY: run-uefi
